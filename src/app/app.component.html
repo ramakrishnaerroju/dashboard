@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar class="toolbar">
   <mat-toolbar-row>
     <span>Dashboard</span>
   </mat-toolbar-row>
@@ -15,70 +15,9 @@
   </mat-form-field>
   <p>Selected category: {{ selectedValue }}</p>
   <div>
-    <button mat-raised-button>Create a Questionnaire</button>
+    <button mat-raised-button (click)="createQuestion()">
+      Create a Questionnaire
+    </button>
   </div>
-  <div>
-    <mat-card class="da-card">
-      <mat-card-title>Add question, options and answer</mat-card-title>
-      <mat-card-content>
-        <mat-form-field class="da-input">
-          <mat-label>Question</mat-label>
-          <input
-            matInput
-            placeholder="Ex. Who is the prime minister of India?"
-            value=""
-          />
-        </mat-form-field>
-        <mat-form-field class="da-input da-width-shrink">
-          <mat-label>Option 1</mat-label>
-          <input
-            matInput
-            placeholder="Ex. option 1"
-            [(ngModel)]="option1"
-            (keyup)="optionChange()"
-          />
-        </mat-form-field>
-
-        <mat-form-field class="da-input da-width-shrink">
-          <mat-label>Option 2</mat-label>
-          <input
-            matInput
-            placeholder="Ex. option 2"
-            [(ngModel)]="option2"
-            (keyup)="optionChange()"
-          />
-        </mat-form-field>
-
-        <mat-form-field class="da-input da-width-shrink">
-          <mat-label>Option 3</mat-label>
-          <input
-            matInput
-            placeholder="Ex. option 3"
-            [(ngModel)]="option3"
-            (keyup)="optionChange()"
-          />
-        </mat-form-field>
-
-        <mat-form-field class="da-input da-width-shrink">
-          <mat-label>Option 4</mat-label>
-          <input
-            matInput
-            placeholder="Ex. option 4"
-            [(ngModel)]="option4"
-            (keyup)="optionChange()"
-          />
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label>Answer</mat-label>
-          <mat-select [(ngModel)]="answer" name="answer">
-            <mat-option *ngFor="let question of questions" [value]="question">
-              {{ question }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <p>Selected Answer {{ answer }}</p>
-      </mat-card-content>
-    </mat-card>
-  </div>
+  <template #questionsContainer></template>
 </div>
